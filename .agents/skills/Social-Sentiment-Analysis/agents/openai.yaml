@@ -1,0 +1,6 @@
+interface:
+  display_name: "Social Sentiment Analysis"
+  short_description: "Repo-specific patterns and workflows for Social-Sentiment-Analysis"
+  default_prompt: "Use the Social-Sentiment-Analysis repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
