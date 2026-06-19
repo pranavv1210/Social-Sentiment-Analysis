@@ -21,7 +21,7 @@ FIELDNAMES = [
 ]
 
 TEXT_KEYS = ("text", "full_text", "tweet_text", "content", "body", "tweet")
-CREATED_KEYS = ("tweet_created", "created_at", "createdAt", "created")
+CREATED_KEYS = ("tweet_created", "tweet_created_at", "created_at", "createdAt", "created")
 ID_KEYS = ("id", "tweet_id", "tweetId", "rest_id", "restId")
 AUTHOR_KEYS = ("author_username", "username", "screen_name", "screenName")
 COLLECTION_KEYS = ("data", "tweets", "results", "items", "records", "posts")
@@ -29,7 +29,7 @@ COLLECTION_KEYS = ("data", "tweets", "results", "items", "records", "posts")
 
 def clean_text(value: str) -> str:
     value = re.sub(r"http\S+|www\S+|https\S+", " ", value)
-    value = re.sub(r"@\w+|#", " ", value)
+    value = re.sub(r"@\w+|#\w+", " ", value)
     value = re.sub(r"[^A-Za-z0-9\s]", " ", value)
     return " ".join(value.lower().split())
 
