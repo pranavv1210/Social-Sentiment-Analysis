@@ -26,6 +26,10 @@ A machine learning project and interactive dashboard for analyzing and visualizi
 │   ├── 03_sentiment_analysis.ipynb
 │   ├── 04_eda_visualization.ipynb
 │   └── 05_model_training.ipynb
+├── scripts/       # Optional data preparation helpers
+│   └── prepare_tweetclaw_export.py
+├── examples/      # Small sample exports for helper validation
+│   └── tweetclaw_export.jsonl
 ├── requirements.txt
 ├── README.md
 └── reports/       # (Optional) Generated reports
@@ -48,6 +52,15 @@ A machine learning project and interactive dashboard for analyzing and visualizi
    streamlit run app/app.py
    ```
 2. **Interact**: Open the provided local URL in your browser to use the dashboard.
+
+## Prepare TweetClaw Exports
+Use `scripts/prepare_tweetclaw_export.py` to convert [TweetClaw](https://github.com/Xquik-dev/tweetclaw) JSON, JSONL, or CSV exports into a CSV that matches this dashboard's tweet columns.
+
+```sh
+python scripts/prepare_tweetclaw_export.py examples/tweetclaw_export.jsonl --output data/tweetclaw_tweets.csv
+```
+
+The helper writes `airline_sentiment`, `airline`, `text`, `tweet_created`, and `clean_text` columns, plus source metadata for review. Exported TweetClaw rows default to `unlabeled` sentiment so they stay separate from the training labels.
 
 ## Data
 - **Tweets.csv**: Raw tweets with sentiment labels and metadata.
